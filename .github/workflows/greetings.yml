@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Welcome! Please read the 'Issue-Reporting.md' file for tips on how to make troubleshooting easier!"
+        pr-message: "Welcome! Please read the 'CONTRIBUTING.md' for the guidlines on contributing please!"
